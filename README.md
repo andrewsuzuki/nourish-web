@@ -10,7 +10,7 @@ Server: [nourish-server](https://github.com/andrewsuzuki/nourish-server)
 
 ## Contributors
 
-* [Andrew Suzuki](andrew.b.suzuki@gmail.com)
+* [Andrew Suzuki](mailto:andrew.b.suzuki@gmail.com)
 
 To contribute, please fork and submit a pull request. Otherwise, feel free to submit possible enhancements/issues on the [issues](https://github.com/andrewsuzuki/nourish-web/issues) page.
 
