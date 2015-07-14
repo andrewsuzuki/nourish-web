@@ -1,3 +1,7 @@
+app_old/
+node_modules/
+dist/
+
 .DS_Store
 
 # Vi/m
