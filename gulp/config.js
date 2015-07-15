@@ -7,8 +7,9 @@ module.exports = {
   'serverport'   : 3002,
 
   'styles': {
-    'src' : 'app/styles/**/*.scss',
-    'dest': 'build/css'
+    'src' : ['node_modules/animate.css/animate.css', 'app/styles/**/*.scss'],
+    'dest': 'build/css',
+    'concat': 'main.css'
   },
 
   'scripts': {
@@ -22,7 +23,7 @@ module.exports = {
   },
 
   'fonts': {
-    'src' : ['app/fonts/**/*'],
+    'src' : ['node_modules/bootstrap-sass/assets/fonts/bootstrap/**/*', 'app/fonts/**/*'],
     'dest': 'build/fonts'
   },
 
