@@ -7,7 +7,7 @@ module.exports = {
   'serverport'   : 3002,
 
   'styles': {
-    'src' : ['node_modules/animate.css/animate.css', 'app/styles/**/*.scss'],
+    'src' : ['node_modules/animate.css/animate.min.css', 'app/styles/**/*.scss'],
     'dest': 'build/css',
     'concat': 'main.css'
   },
