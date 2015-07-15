@@ -1,8 +1,8 @@
 'use strict';
 
 var AppSettings = {
-  appTitle: 'Example Application',
-  apiUrl: '/api/v1'
+  appTitle: 'Nourish',
+  apiUrl: 'https://nourish.dotcloudapp.com/api'
 };
 
 module.exports = AppSettings;
