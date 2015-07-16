@@ -3,18 +3,14 @@
 var config         = require('../config');
 var gulp           = require('gulp');
 var templateCache  = require('gulp-angular-templatecache');
-var handlebars     = require('gulp-compile-handlebars');
-var rename         = require('gulp-rename');
+var preprocess     = require('gulp-preprocess');
 
 // Views task
 gulp.task('views', function() {
 
-  var templateData = (global.isProd) ? { baseUrlPath: '/nourish-web/' } : { baseUrlPath: '/' };
-
-  // Put our index.hbs in the dist folder
-  gulp.src('app/index.hbs')
-    .pipe(handlebars(templateData))
-    .pipe(rename('index.html'))
+  // Put our index.html in the dist folder
+  gulp.src('app/index.html')
+    .pipe(preprocess({ context: { isProd: global.isProd } }))
     .pipe(gulp.dest(config.dist.root));
 
   // Process any other view files from app/views

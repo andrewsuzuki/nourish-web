@@ -29,7 +29,7 @@ module.exports = {
 
   'views': {
     'watch': [
-      'app/index.hbs',
+      'app/index.html',
       'app/views/**/*.html'
     ],
     'src': 'app/views/**/*.html',
