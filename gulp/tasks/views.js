@@ -8,16 +8,16 @@ var preprocess     = require('gulp-preprocess');
 // Views task
 gulp.task('views', function() {
 
-  // Put our index.html in the dist folder
-  gulp.src('app/index.html')
-    .pipe(preprocess({ context: { isProd: global.isProd } }))
-    .pipe(gulp.dest(config.dist.root));
+    // Put our index.html in the dist folder
+    gulp.src('app/index.html')
+        .pipe(preprocess({ context: { isProd: global.isProd } }))
+        .pipe(gulp.dest(config.dist.root));
 
-  // Process any other view files from app/views
-  return gulp.src(config.views.src)
-    .pipe(templateCache({
-      standalone: true
-    }))
-    .pipe(gulp.dest(config.views.dest));
+    // Process any other view files from app/views
+    return gulp.src(config.views.src)
+        .pipe(templateCache({
+            standalone: true
+        }))
+        .pipe(gulp.dest(config.views.dest));
 
 });
