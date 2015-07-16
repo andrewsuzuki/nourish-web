@@ -21,14 +21,14 @@ angular.element(document).ready(function() {
   ];
 
   // mount on window for testing
-  window.app = angular.module('nourish', requires);
+  window.app = angular.module('app', requires);
 
-  angular.module('nourish').constant('AppSettings', require('./constants'));
+  angular.module('app').constant('AppSettings', require('./constants'));
 
-  angular.module('nourish').config(require('./on_config'));
+  angular.module('app').config(require('./on_config'));
 
-  angular.module('nourish').run(require('./on_run'));
+  angular.module('app').run(require('./on_run'));
 
-  angular.bootstrap(document, ['nourish']);
+  angular.bootstrap(document, ['app']);
 
 });

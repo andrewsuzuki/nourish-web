@@ -5,7 +5,7 @@
     "description": "Nourish Front-end Web App",
     "repository": {
         "type": "git",
-        "url": "https://github.com/andrewsuzuki/nourish-server"
+        "url": "https://github.com/andrewsuzuki/nourish-web"
     },
     "keywords": [
         "Web App",
