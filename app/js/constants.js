@@ -12,6 +12,12 @@ var AppSettings = {
         { slug: 'northwest', name: 'Northwest' },
         { slug: 'south', name: 'South' },
         { slug: 'towers', name: 'Gelfenbein Commons (Towers)' },
+    ],
+    mealTypes: [
+        'Breakfast', // 0
+        'Lunch', // 1
+        'Dinner', // 2
+        'Brunch' // 3
     ]
 };
 

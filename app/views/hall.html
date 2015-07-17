@@ -1,14 +1,103 @@
-<h1>{{ hall.title }}</h1>
+<h1>{{ hall.name }}</h1>
 
 <tabset type="pills">
-    <tab ng-repeat="day in hall.days" heading="{{ day.title }}" active="day.active" disabled="day.disabled">
+    <tab ng-repeat="day in hall.days" heading="{{ hall.displayDate(day.date) }}" active="day.active">
         <br />
         <tabset>
-            <tab ng-repeat="meal in day.meals" heading="{{ meal.title }}" active="meal.active" disabled="meal.disabled">
-                <ul>
-                    <li ng-repeat="item in meal.items"></li>
-                </ul>
+            <tab ng-repeat="meal in day.meals" heading="{{ hall.mealType(meal.type) }}" active="meal.active">
+                <br />
+                <div ng-repeat="cat in meal.cats" class="panel panel-default">
+                    <div class="panel-heading">{{ cat.name }}</div>
+                    <div class="panel-body">
+                        <ul>
+                            <li ng-repeat="item in cat.items"><a ng-click="hall.labelOpen(item._id)">{{ item.name }}</a></li>
+                        </ul>
+                    </div>
+                </div>
             </tab>
         </tabset>
     </tab>
 </tabset>
+
+<script type="text/ng-template" id="labelModalContent.html">
+    <div class="modal-header">
+        <h3 class="modal-title">{{ modal.item.name }}</h3>
+    </div>
+    <div class="modal-body">
+        <div class="row">
+            <div class="col-md-6">
+                <div class="panel panel-default">
+                    <div class="panel-heading">General</div>
+                    <div class="panel-body">
+                        <ul>
+                            <li>Serving Size: {{ modal.item.label.nutrition.serving_size }}</li>
+                            <li>Calories: {{ modal.item.label.nutrition.calories }}</li>
+                            <li>Calories from Fat: {{ modal.item.label.nutrition.calories_from_fat }}</li>
+                            <li>Vitamin A <span class="label label-success">{{ modal.item.label.vitamins.a }}%</span></li>
+                            <li>Vitamin C <span class="label label-success">{{ modal.item.label.vitamins.c }}%</span></li>
+                            <li>Calcium <span class="label label-success">{{ modal.item.label.vitamins.calc }}%</span></li>
+                            <li>Iron <span class="label label-success">{{ modal.item.label.vitamins.iron }}%</span></li>
+                            <li><strong>Allergens:</strong> {{ modal.item.label.allergens }}</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="panel panel-default">
+                    <div class="panel-heading">Composition</div>
+                    <div class="panel-body">
+                        <ul>
+                            <li>
+                                Total Fat
+                                <span class="label label-info">{{ modal.item.label.composition.total_fat.amount }}</span>
+                                <span class="label label-success">{{ modal.item.label.composition.total_fat.pdv }}%</span>
+                                <ul>
+                                    <li>
+                                        Sat. Fat
+                                        <span class="label label-info">{{ modal.item.label.composition.sat_fat.amount }}</span>
+                                        <span class="label label-success">{{ modal.item.label.composition.sat_fat.pdv }}%</span>
+                                    </li>
+                                    <li>
+                                        Trans Fat
+                                        <span class="label label-info">{{ modal.item.label.composition.trans_fat.amount }}</span>
+                                    </li>
+                                </ul>
+                            <li>
+                                Cholesterol
+                                <span class="label label-info">{{ modal.item.label.composition.cholesterol.amount }}</span>
+                                <span class="label label-success">{{ modal.item.label.composition.cholesterol.pdv }}%</span>
+                            </li>
+                            <li>
+                                Sodium
+                                <span class="label label-info">{{ modal.item.label.composition.sodium.amount }}</span>
+                                <span class="label label-success">{{ modal.item.label.composition.sodium.pdv }}%</span>
+                            </li>
+                            <li>
+                                Total Carb
+                                <span class="label label-info">{{ modal.item.label.composition.total_carb.amount }}</span>
+                                <span class="label label-success">{{ modal.item.label.composition.total_carb.pdv }}%</span>
+                                <ul>
+                                    <li>
+                                        Dietary Fiber
+                                        <span class="label label-info">{{ modal.item.label.composition.dietary_fiber.amount }}</span>
+                                        <span class="label label-success">{{ modal.item.label.composition.dietary_fiber.pdv }}%</span>
+                                    </li>
+                                    <li>
+                                        Sugars
+                                        <span class="label label-info">{{ modal.item.label.composition.sugars.amount }}</span>
+                                    </li>
+                                </ul>
+                            <li>
+                                Protein
+                                <span class="label label-info">{{ modal.item.label.composition.protein.amount }}</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button class="btn btn-default" ng-click="modal.close()">Close</button>
+    </div>
+</script>
