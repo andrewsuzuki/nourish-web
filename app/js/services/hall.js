@@ -7,13 +7,12 @@ var servicesModule = require('./_index.js');
  */
 function HallService($q, $http, AppSettings) {
 
-    var service = {};
+    var factory = {};
 
-    service.get = function() {
+    factory.get = function() {
         var deferred = $q.defer();
 
         $http.get(AppSettings.apiUrl + '/halls').success(function(data) {
-            console.log(data);
             deferred.resolve(data);
         }).error(function(err, status) {
             deferred.reject(err, status);
@@ -22,8 +21,8 @@ function HallService($q, $http, AppSettings) {
         return deferred.promise;
     };
 
-    return service;
+    return factory;
 
 }
 
-servicesModule.service('HallService', HallService);
+servicesModule.factory('HallService', HallService);

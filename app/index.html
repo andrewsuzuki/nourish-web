@@ -33,9 +33,20 @@
                     </div>
 
                     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                        <ul class="nav navbar-nav">
+                        <ul class="nav navbar-nav" ng-controller="HallDropdownCtrl as halldrop">
                             <li ui-sref-active="active"><a ui-sref="today">Today</a></li>
-                            <li ui-sref-active="active"><a ui-sref="hall">Dining Halls</a></li>
+                            <li dropdown>
+                                <a href="#" dropdown-toggle>Dining Halls <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    <li ng-repeat="item in halldrop.items"><a href="#">{{ item }}</a></li>
+                                </ul>
+                            </li>
+                            <li ui-sref-active="active" class="dropdown">
+                                <a ui-sref="hall" class="dropdown-toggle" data-toggle="dropdown">Dining Halls <span class="caret"></span></a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="#">Action</a></li>
+                                </ul>
+                            </li>
                             <li ui-sref-active="active"><a href="#"><span class="glyphicon glyphicon-fire text-danger"></span> Wings Finder</a></li>
                             <li><a href="#"><span class="glyphicon glyphicon-download text-success"></span> Download the app</a></li>
                         </ul>
