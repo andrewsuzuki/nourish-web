@@ -5,12 +5,16 @@ var controllersModule = require('./_index');
 /**
  * @ngInject
  */
-function HallCtrl(HallService) {
+function HallCtrl($stateParams, HallService, AppSettings) {
 
     // ViewModel
     var vm = this;
 
-    vm.title = 'South';
+    AppSettings.halls.forEach(function(el) {
+        if (el.slug === $stateParams.hallName) {
+            vm.title = el.name;
+        }
+    });
 
     vm.days = [
         {
