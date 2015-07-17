@@ -8,13 +8,13 @@ function OnConfig($stateProvider, $locationProvider, $urlRouterProvider) {
     $locationProvider.html5Mode(true);
 
     $stateProvider
-        .state('Today', {
+        .state('today', {
             url: '/',
             controller: 'TodayCtrl as today',
             templateUrl: 'today.html',
             title: 'Today'
         })
-        .state('Hall', {
+        .state('hall', {
             url: '/hall/:hallName',
             controller: 'HallCtrl as hall',
             templateUrl: 'hall.html',

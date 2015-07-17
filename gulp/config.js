@@ -41,7 +41,7 @@ module.exports = {
         'dest': 'build/',
         'options': {}
     },
-
+    
     'dist': {
         'root'  : 'build'
     },

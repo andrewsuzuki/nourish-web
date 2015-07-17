@@ -1,11 +1,14 @@
 <h1>{{ hall.title }}</h1>
 
-<div class="btn-group">
-    <label class="btn btn-primary" ng-repeat="day in hall.days" ng-model="hall.day" btn-radio="'{{ day.title }}'">{{ day.title }}</label>
-</div>
-
-<tabset>
-    <tab ng-repeat="tab in hall.tabs" heading="{{ tab.title }}" active="tab.active" disabled="tab.disabled">
-        {{ tab.content }}
+<tabset type="pills">
+    <tab ng-repeat="day in hall.days" heading="{{ day.title }}" active="day.active" disabled="day.disabled">
+        <br />
+        <tabset>
+            <tab ng-repeat="meal in day.meals" heading="{{ meal.title }}" active="meal.active" disabled="meal.disabled">
+                <ul>
+                    <li ng-repeat="item in meal.items"></li>
+                </ul>
+            </tab>
+        </tabset>
     </tab>
 </tabset>

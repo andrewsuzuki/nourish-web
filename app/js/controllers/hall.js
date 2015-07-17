@@ -5,7 +5,7 @@ var controllersModule = require('./_index');
 /**
  * @ngInject
  */
-function HallCtrl() {
+function HallCtrl(HallService) {
 
     // ViewModel
     var vm = this;
@@ -13,17 +13,30 @@ function HallCtrl() {
     vm.title = 'South';
 
     vm.days = [
-        { title: 'Today' },
-        { title: 'Tommorow' },
-        { title: 'Etc' }
+        {
+            title: 'Today',
+            meals: [
+                { title: 'Breakfast', content: 'Breakfast menu', state: 'hall' },
+                { title: 'Lunch', content: 'Lunch menu', state: 'cool' }
+            ]
+        },
+        {
+            title: 'Tomorrow',
+            meals: [
+                { title: 'Breakfast', content: 'Breakfast menu', state: 'hall' },
+                { title: 'Lunch', content: 'Lunch menu', state: 'cool' }
+            ]
+        },
+        {
+            title: 'Etc',
+            meals: [
+                { title: 'Breakfast', content: 'Breakfast menu', state: 'hall' },
+                { title: 'Lunch', content: 'Lunch menu', state: 'cool' }
+            ]
+        },
     ];
 
     vm.day = 'Today';
-
-    vm.tabs = [
-        { title: 'Dynamic Title 1', content: 'Dynamic content 1' },
-        { title: 'Dynamic Title 2', content: 'Dynamic content 2' }
-    ];
 
 }
 
