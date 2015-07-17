@@ -1,5 +1,9 @@
 <h1>{{ hall.name }}</h1>
 
+<div class="progress progress-striped active" ng-if="!hall.loaded">
+    <div class="progress-bar progress-bar-success " style="width: 100%"></div>
+</div>
+
 <tabset type="pills">
     <tab ng-repeat="day in hall.days" heading="{{ hall.displayDate(day.date) }}" active="day.active">
         <br />

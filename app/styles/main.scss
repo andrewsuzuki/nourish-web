@@ -2,3 +2,7 @@
 @import '../../node_modules/bootswatch/flatly/_variables.scss';
 @import '../../node_modules/bootstrap-sass/assets/stylesheets/_bootstrap.scss';
 @import '../../node_modules/bootswatch/flatly/_bootswatch.scss';
+
+// Fix pointer-less ui-sref links
+// (should probably use something less general)
+a { cursor: pointer; }

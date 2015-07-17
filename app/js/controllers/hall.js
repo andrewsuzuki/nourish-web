@@ -12,6 +12,8 @@ function HallCtrl($stateParams, $modal, HallService, AppSettings) {
 
     vm.foundHall = false; // TODO replace this
 
+    vm.loaded = false;
+
     vm.normalizeDate = function(date) {
         return (new Date(date)).toDateString();
     };
@@ -135,6 +137,7 @@ function HallCtrl($stateParams, $modal, HallService, AppSettings) {
             // Get hall with populated meals and items
             HallService.get(vm.name).then(function(hall) {
                 vm.days = vm.organizeMealsIntoDays(hall.meals);
+                vm.loaded = true;
             });
             // TODO: handle error
 
