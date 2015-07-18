@@ -14,7 +14,10 @@
                     <div class="panel-heading">{{ cat.name }}</div>
                     <div class="panel-body">
                         <ul>
-                            <li ng-repeat="item in cat.items"><a ng-click="hall.labelOpen(item._id)">{{ item.name }}</a></li>
+                            <li ng-repeat="item in cat.items">
+                                <a ng-click="hall.labelOpen(item._id)" tooltip-placement="bottom" tooltip="Click for Nutrition">{{ item.name }}</a>
+                                <span class="label label-primary">{{ item.label.nutrition.calories }} cal</span>
+                            </li>
                         </ul>
                     </div>
                 </div>

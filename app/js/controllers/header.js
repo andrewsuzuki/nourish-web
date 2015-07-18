@@ -12,6 +12,8 @@ function HeaderCtrl($log, AppSettings) {
 
     vm.halldrop = AppSettings.halls;
 
+    vm.isCollapsed = true;
+
 }
 
 controllersModule.controller('HeaderCtrl', HeaderCtrl);

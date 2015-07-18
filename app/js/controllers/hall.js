@@ -5,7 +5,7 @@ var controllersModule = require('./_index');
 /**
  * @ngInject
  */
-function HallCtrl($stateParams, $modal, HallService, AppSettings) {
+function HallCtrl($stateParams, $location, $modal, HallService, AppSettings) {
 
     // ViewModel
     var vm = this;
@@ -147,7 +147,7 @@ function HallCtrl($stateParams, $modal, HallService, AppSettings) {
     });
 
     if (!vm.foundHall) {
-        // TODO: 404 or something
+        $location.url('/').replace();
     }
 
     vm.labelOpen = function(itemId) {
