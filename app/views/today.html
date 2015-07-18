@@ -6,3 +6,28 @@
 
 <h1>Today</h1>
 
+<div class="progress progress-striped active" ng-if="!today.loaded">
+    <div class="progress-bar progress-bar-success " style="width: 100%"></div>
+</div>
+
+<tabset type="pills">
+    <tab ng-repeat="hall in today.halls" heading="{{ hall.name }}" active="hall.active">
+        <br />
+        <tabset>
+            <tab ng-repeat="meal in hall.meals" heading="{{ today.mealType(meal.type) }}" active="meal.active">
+                <br />
+                <div ng-repeat="cat in meal.cats" class="panel panel-default">
+                    <div class="panel-heading">{{ cat.name }}</div>
+                    <div class="panel-body">
+                        <ul>
+                            <li ng-repeat="item in cat.items">
+                                <a ng-click="today.labelOpen(item._id)" tooltip-placement="bottom" tooltip="Click for Nutrition">{{ item.name }}</a>
+                                <span class="label label-primary">{{ item.label.nutrition.calories }} cal</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </tab>
+        </tabset>
+    </tab>
+</tabset>

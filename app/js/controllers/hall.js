@@ -10,7 +10,7 @@ function HallCtrl($stateParams, $location, $modal, HallService, AppSettings) {
     // ViewModel
     var vm = this;
 
-    vm.foundHall = false; // TODO replace this
+    vm.foundHall = false;
 
     vm.loaded = false;
 
@@ -153,7 +153,7 @@ function HallCtrl($stateParams, $location, $modal, HallService, AppSettings) {
     vm.labelOpen = function(itemId) {
         $modal.open({
             animation: true,
-            templateUrl: 'labelModalContent.html',
+            templateUrl: 'labelModal.html',
             controller: 'LabelModalInstanceCtrl as modal',
             size: 'lg',
             resolve: {
