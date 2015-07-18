@@ -5,7 +5,7 @@ var controllersModule = require('./_index');
 /**
  * @ngInject
  */
-function HeaderCtrl($log, AppSettings) {
+function HeaderCtrl($rootScope, $log, AppSettings) {
 
     // ViewModel
     var vm = this;
@@ -13,6 +13,11 @@ function HeaderCtrl($log, AppSettings) {
     vm.halldrop = AppSettings.halls;
 
     vm.isCollapsed = true;
+
+    // Collapse menu when we change states
+    $rootScope.$on('$stateChangeSuccess', function(/* long */) {
+        vm.isCollapsed = true;
+    });
 
 }
 

@@ -4,6 +4,10 @@
     <div class="progress-bar progress-bar-success " style="width: 100%"></div>
 </div>
 
+<div class="alert alert-info" ng-if="!hall.days.length && hall.loaded">
+    Sorry, no menus were found for {{ hall.name }}.
+</div>
+
 <tabset type="pills">
     <tab ng-repeat="day in hall.days" heading="{{ hall.displayDate(day.date) }}" active="day.active">
         <br />
