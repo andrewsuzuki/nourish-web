@@ -12,7 +12,7 @@ function TodayCtrl($modal, ItemService, AppSettings) {
 
     vm.loaded = false;
 
-    ItemService.getToday().then(function(halls) {
+    ItemService.today().then(function(halls) {
         halls.forEach(function(hall) {
             hall.meals.forEach(function(meal) {
                 meal.cats = vm.organizeItemsIntoCats(meal.items);
@@ -80,10 +80,6 @@ function TodayCtrl($modal, ItemService, AppSettings) {
         });
 
         return found;
-    };
-
-    vm.mealType = function(mealTypeId) {
-        return AppSettings.mealTypes[mealTypeId];
     };
 
     vm.labelOpen = function(itemId) {

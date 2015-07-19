@@ -5,7 +5,7 @@ var controllersModule = require('./_index');
 /**
  * @ngInject
  */
-function HallCtrl($stateParams, $location, $modal, HallService, AppSettings) {
+function HallCtrl($stateParams, $location, $modal, ItemService, AppSettings) {
 
     // ViewModel
     var vm = this;
@@ -123,10 +123,6 @@ function HallCtrl($stateParams, $location, $modal, HallService, AppSettings) {
         return found;
     };
 
-    vm.mealType = function(mealTypeId) {
-        return AppSettings.mealTypes[mealTypeId];
-    };
-
     AppSettings.halls.some(function(hall) {
         if (hall.slug === $stateParams.hallName) {
             vm.foundHall = true;
@@ -134,11 +130,18 @@ function HallCtrl($stateParams, $location, $modal, HallService, AppSettings) {
             vm.name = hall.name;
             vm.slug = hall.slug;
 
-            // Get hall with populated meals and items
-            HallService.get(vm.name).then(function(hall) {
-                vm.days = vm.organizeMealsIntoDays(hall.meals);
-                vm.loaded = true;
+            ItemService.allHalls().then(function(halls) {
+                halls.some(function(hall) {
+                    if (hall.name === vm.name) {
+                        vm.loaded = true;
+                        vm.days = vm.organizeMealsIntoDays(hall.meals);
+
+                        // Break
+                        return true;
+                    }
+                });
             });
+
             // TODO: handle error
 
             // Break

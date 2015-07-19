@@ -14,7 +14,7 @@
     <tab ng-repeat="hall in today.halls" heading="{{ hall.name }}" active="hall.active">
         <br />
         <tabset>
-            <tab ng-repeat="meal in hall.meals" heading="{{ today.mealType(meal.type) }}" active="meal.active">
+            <tab ng-repeat="meal in hall.meals" heading="{{ meal.type }}" active="meal.active">
                 <br />
                 <div ng-repeat="cat in meal.cats" class="panel panel-default">
                     <div class="panel-heading">{{ cat.name }}</div>

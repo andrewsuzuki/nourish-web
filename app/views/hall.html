@@ -12,7 +12,7 @@
     <tab ng-repeat="day in hall.days" heading="{{ hall.displayDate(day.date) }}" active="day.active">
         <br />
         <tabset>
-            <tab ng-repeat="meal in day.meals" heading="{{ hall.mealType(meal.type) }}" active="meal.active">
+            <tab ng-repeat="meal in day.meals" heading="{{ meal.type }}" active="meal.active">
                 <br />
                 <div ng-repeat="cat in meal.cats" class="panel panel-default">
                     <div class="panel-heading">{{ cat.name }}</div>

@@ -1,7 +1,18 @@
 <h1>Search</h1>
 
-<div ng-if="!search.items.length">No results.</div>
+<div class="progress progress-striped active" ng-if="!search.loaded">
+    <div class="progress-bar progress-bar-success " style="width: 100%"></div>
+</div>
 
-<ul>
-    <li ng-repeat="item in search.items | filter:search.query">{{ item.name }}</li>
+<div class="alert alert-info" ng-if="!search.items.length && search.loaded">
+    Sorry, no items were found.
+</div>
+
+<div class="panel panel-default" ng-repeat="item in search.items | filter:search.query" ng-init="hallmeals = search.findHallmeals(item.hallmeals)">
+    <div class="panel-heading">{{ item.name }}</div>
+    <div class="panel-body">
+        <ul>
+            <li ng-repeat="hm in hallmeals">{{ hm.hall.name }} -- {{ hm.meal.type }} -- {{ hm.meal.date }}</li>
+        </ul>
+    </li>
 </ul>
