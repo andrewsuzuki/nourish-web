@@ -1,0 +1,7 @@
+<h1>Search</h1>
+
+<div ng-if="!search.items.length">No results.</div>
+
+<ul>
+    <li ng-repeat="item in search.items | filter:search.query">{{ item.name }}</li>
+</ul>

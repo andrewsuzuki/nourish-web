@@ -9,6 +9,18 @@ function ItemService($q, $http, AppSettings) {
 
     var factory = {};
 
+    factory.all = function(searchQuery) {
+        var deferred = $q.defer();
+
+        $http.post(AppSettings.apiUrl + '/items/all').success(function(data) {
+            deferred.resolve(data);
+        }).error(function(err, status) {
+            deferred.reject(err, status);
+        });
+
+        return deferred.promise;
+    };
+
     factory.getToday = function(name) {
         var deferred = $q.defer();
 

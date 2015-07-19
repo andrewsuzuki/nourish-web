@@ -5,7 +5,7 @@ var controllersModule = require('./_index');
 /**
  * @ngInject
  */
-function HeaderCtrl($rootScope, $log, AppSettings) {
+function HeaderCtrl($state, $rootScope, $location, AppSettings) {
 
     // ViewModel
     var vm = this;
@@ -17,6 +17,17 @@ function HeaderCtrl($rootScope, $log, AppSettings) {
     // Collapse menu when we change states
     $rootScope.$on('$stateChangeSuccess', function(/* long */) {
         vm.isCollapsed = true;
+    });
+
+    // Search query
+    $rootScope.searchQuery = '';
+
+    // If the search box text changes, switch to our search page
+    // if we're not already there
+    $rootScope.$watch('searchQuery', function() {
+        if ($rootScope.searchQuery.length && !$state.includes('search')) {
+            $location.url('/search');
+        }
     });
 
 }

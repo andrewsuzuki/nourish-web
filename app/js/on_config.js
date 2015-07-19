@@ -20,6 +20,12 @@ function OnConfig($stateProvider, $locationProvider, $urlRouterProvider) {
             templateUrl: 'hall.html',
             title: 'Hall'
         })
+        .state('search', {
+            url: '/search',
+            controller: 'SearchCtrl as search',
+            templateUrl: 'search.html',
+            title: 'Search'
+        })
         .state('about', {
             url: '/about',
             controller: 'AboutCtrl as about',
