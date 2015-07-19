@@ -31,6 +31,12 @@ function OnConfig($stateProvider, $locationProvider, $urlRouterProvider) {
             controller: 'AboutCtrl as about',
             templateUrl: 'about.html',
             title: 'About'
+        })
+        .state('app', {
+            url: '/app',
+            controller: 'MobileAppCtrl as ma',
+            templateUrl: 'mobileapp.html',
+            title: 'Mobile App'
         });
 
     $urlRouterProvider.otherwise('/');
