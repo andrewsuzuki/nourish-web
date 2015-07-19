@@ -26,6 +26,12 @@ function OnConfig($stateProvider, $locationProvider, $urlRouterProvider) {
             templateUrl: 'search.html',
             title: 'Search'
         })
+        .state('wings', {
+            url: '/wings',
+            controller: 'WingsCtrl as wings',
+            templateUrl: 'wings.html',
+            title: 'Wings Finder'
+        })
         .state('about', {
             url: '/about',
             controller: 'AboutCtrl as about',

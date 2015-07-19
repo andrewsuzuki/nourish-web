@@ -41,7 +41,7 @@
                                     <li ng-repeat="hall in header.halldrop" ui-sref-active="active"><a ui-sref="hall({ hallName: '{{ hall.slug }}' })">{{ hall.name }}</a></li>
                                 </ul>
                             </li>
-                            <li ui-sref-active="active"><a href="#"><span class="glyphicon glyphicon-fire text-danger hidden-sm"></span> Wings Finder</a></li>
+                            <li ui-sref-active="active"><a ui-sref="wings"><span class="glyphicon glyphicon-fire text-danger hidden-sm"></span> Wings Finder</a></li>
                             <li ui-sref-active="active" class="hidden-sm"><a ui-sref="app"><span class="glyphicon glyphicon-download text-success"></span> Download the app</a></li>
                         </ul>
                         <form class="navbar-form navbar-left" role="search">
