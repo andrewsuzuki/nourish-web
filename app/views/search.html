@@ -16,7 +16,7 @@
     <div class="panel-heading">{{ item.name }}</div>
     <div class="panel-body">
         <ul>
-            <li ng-repeat="hm in hallmeals">{{ hm.hall.name }} -- {{ hm.meal.type }} -- {{ hm.meal.date }}</li>
+            <li ng-repeat="hm in hallmeals">{{ hm.hall.name }} -- {{ hm.meal.type }} -- {{ hm.meal.date | date:'EEE, MMMM d' }}</li>
         </ul>
     </li>
 </ul>

@@ -1,0 +1,10 @@
+// Fix pointer-less ui-sref links
+// (should probably use something less general)
+a { cursor: pointer; }
+
+// Remove hover from header brand logo
+.navbar-default a.navbar-brand {
+    &:hover, &:link, &:active, &:visited {
+        color: #FFFFFF;
+    }
+}
