@@ -1,3 +1,18 @@
 <h1>Wings Finder</h1>
 
-Fire
+<div class="progress progress-striped active" ng-if="!wings.loaded">
+    <div class="progress-bar progress-bar-success " style="width: 100%"></div>
+</div>
+
+<div class="alert alert-info" ng-if="!wings.items.length && wings.loaded">
+    Sorry, no upcoming wings were found.
+</div>
+
+<div class="panel panel-default" ng-repeat="item in wings.items" ng-init="hallmeals = wings.findHallmeals(item.hallmeals)">
+    <div class="panel-heading">{{ item.name }}</div>
+    <div class="panel-body">
+        <ul>
+            <li ng-repeat="hm in hallmeals">{{ hm.hall.name }} -- {{ hm.meal.type }} -- {{ hm.meal.date | date:'EEE, MMMM d' }}</li>
+        </ul>
+    </li>
+</ul>
