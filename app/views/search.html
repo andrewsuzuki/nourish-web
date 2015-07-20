@@ -4,11 +4,15 @@
     <div class="progress-bar progress-bar-success " style="width: 100%"></div>
 </div>
 
-<div class="alert alert-info" ng-if="!search.items.length && search.loaded">
+<div class="alert alert-info" ng-if="!filteredItems.length && search.query.length && search.loaded">
     Sorry, no items were found.
 </div>
 
-<div class="panel panel-default" ng-repeat="item in search.items | filter:search.query" ng-init="hallmeals = search.findHallmeals(item.hallmeals)">
+<div class="alert alert-info" ng-if="!search.query.length">
+    Please enter a search query above.
+</div>
+
+<div ng-if="search.query.length" class="panel panel-default" ng-repeat="item in filteredItems = (search.items | filter:search.query)" ng-init="hallmeals = search.findHallmeals(item.hallmeals)">
     <div class="panel-heading">{{ item.name }}</div>
     <div class="panel-body">
         <ul>
